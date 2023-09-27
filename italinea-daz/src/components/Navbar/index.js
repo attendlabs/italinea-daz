@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Navbar = () => {
     return (
-        <nav className="border-[#0D3680] bg-[#0D3680] w-full py-1 px-2 md:fixed">
+        <nav className="shadow-lg bg-[#0D3680] w-full py-1 px-2 md:fixed">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 -mt-1">
                 <a href="#" className="flex items-start flex-col md:flex-row md:gap-3">
                     <Image src={'/logo.png'} width={110} height={36} alt={'Logo Italinea'} />
