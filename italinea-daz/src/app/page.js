@@ -16,11 +16,11 @@ const HeroSection = () => {
 const GallerySection = () => {
   return (
     <section className='mx-6 md:mx-24'>
-      <div class="grid gap-1 md:gap-4">
+      <div className="grid gap-1 md:gap-4">
         <div>
           <Image width={1400} height={800} src="/ambiente1.jpeg" alt="" className="h-auto max-w-full rounded-lg" />
         </div>
-        <div class="grid grid-cols-4 gap-1 md:gap-4">
+        <div className="grid grid-cols-4 gap-1 md:gap-4">
           <div>
             <Image width={400} height={300} src="/ambiente2.jpeg" alt="" className="h-auto max-w-full rounded-lg" />
           </div>
@@ -32,6 +32,56 @@ const GallerySection = () => {
           </div>
           <div>
             <Image width={400} height={300} src="/ambiente5.jpeg" alt="" className="h-auto max-w-full rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+};
+
+const InfoSection = () => {
+  return (
+    <section className="py-24 lg:py-32 overflow-hidden px-4 md:px-0 md:my-24">
+      <div className="container px-4 mx-auto">
+        <div className="flex flex-wrap md:items-start -m-8">
+          <div className="w-full md:w-1/2 p-4">
+            <Image width={800} height={500} className="mx-auto rounded-lg transform hover:-translate-y-1 transition duration-500" src="/info-mock.jpeg" alt="" />
+          </div>
+          <div className="w-full md:w-1/2 p-8">
+            <div className="max-w-xl">
+              <div className="flex flex-wrap -m-6">
+                <div className="w-full p-6">
+                  <div className="flex flex-col flex-wrap -m-2">
+                    <div className="w-auto">
+                      <div className="flex items-center justify-center text-xl text-white tracking-wide px-4 py-2 bg-[#0d3886] rounded-se-3xl rounded-md">5 anos de garantia</div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-light text-center md:text-left">Os produtos Italínea são fabricados com materiais de alta qualidade visando máxima durabilidade.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full p-6">
+                  <div className="flex flex-col flex-wrap -m-2">
+                    <div className="w-auto">
+                      <div className="flex items-center justify-center text-xl text-white tracking-wide px-4 py-2 bg-[#0d3886] rounded-se-3xl rounded-md">Líder no Mercado</div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-light text-center md:text-left">Somos a maior fábrica de móveis planejados da América Latina com anos de atuação e milhares de projetos entregue..</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full p-6">
+                  <div className="flex flex-col flex-wrap -m-2">
+                    <div className="w-auto">
+                      <div className="flex items-center justify-center text-xl text-white tracking-wide px-4 py-2 bg-[#0d3886] rounded-se-3xl rounded-md">Financeira própria</div>
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-light text-center md:text-left">Na compra dos produtos Italínea, você pode contar com a ItalíneaCredi. Assim, você pode mobiliar toda a sua casa com facilidade de pagamento..</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -58,27 +108,28 @@ export default function Home() {
           </div>
           <div className='md:w-1/3'>
             <form>
-              <div class="my-4">
+              <div className="my-4">
                 <input type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 " placeholder="Seu nome" required />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <input type="tel" id="telefone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu telefone" required />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu e-mail para contato" required />
               </div>
-              <div class="mb-4">
+              <div className="mb-4">
                 <input type="text" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5" placeholder="Qual é o seu projeto?" required />
               </div>
               <button type="submit" className="flex items-center text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 <span>Solicitar orçamento</span>
-                <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>
               </button>
             </form>
           </div>
         </section>
+        <InfoSection />
         <GallerySection />
 
       </main>
