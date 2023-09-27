@@ -87,6 +87,34 @@ const InfoSection = () => {
       </div>
     </section>
   )
+};
+
+const Banner = () => {
+  return (
+    <section className="py-8 tracking-wide">
+      <div className="container px-4 mx-auto">
+        <div className="relative py-24 px-16 text-center rounded overflow-hidden bg-cover bg-center" style={{ backgroundImage: "url('/ambiente4.jpeg')" }}>
+          <div className="absolute inset-0 bg-[#0D3680] bg-opacity-90"></div>
+          <div className="relative">
+            <span className='text-white font-light text-center'>Móveis Planejados</span>
+            <h3 className="my-2 text-2xl font-medium text-white">
+              PAGUE EM ATÉ 36X COM
+              A PRIMEIRA PARCELA PARA ATÉ 150 DIAS
+            </h3>
+            <p className="mb-4 text-md font-light text-blue-100">Fale agora direto com o projetista.</p>
+            <a className="inline-flex items-center" href="#orcamento">
+              <button type="submit" className="flex items-center text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                <span>Solicitar orçamento</span>
+                <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section >
+  )
 }
 
 export default function Home() {
@@ -130,8 +158,8 @@ export default function Home() {
           </div>
         </section>
         <InfoSection />
+        <Banner />
         <GallerySection />
-
       </main>
     </>
   )
