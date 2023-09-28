@@ -1,9 +1,7 @@
+'use client'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
-
-const inter = Inter({ subsets: ['latin'] })
+import { useForm } from "react-hook-form";
 
 const HeroSection = () => {
   return (
@@ -41,7 +39,7 @@ const GallerySection = () => {
 
 const InfoSection = () => {
   return (
-    <section className="py-24 lg:py-32 overflow-hidden px-4 md:px-0 md:my-24">
+    <section className="py-24 lg:py-32 overflow-hidden px-4 md:px-0 md:my-24 bg-gray-100">
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap md:items-start -m-8">
           <div className="w-full md:w-1/2 p-4">
@@ -118,9 +116,19 @@ const Banner = () => {
 }
 
 export default function Home() {
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+
+  const onSubmit = (data) => console.log(data)
+
   return (
     <>
-      <main className="min-h-screen">
+      <main className="min-h-screen m-auto max-w-7xl	">
         <Navbar />
         <HeroSection />
 
@@ -135,18 +143,18 @@ export default function Home() {
             </h2>
           </div>
           <div className='md:w-1/3'>
-            <form>
+            <form onSubmit={handleSubmit(onSubmit)}> 
               <div className="my-4">
-                <input type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 " placeholder="Seu nome" required />
+                <input {...register("nome")}  type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 " placeholder="Seu nome" required />
               </div>
               <div className="mb-4">
-                <input type="tel" id="telefone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu telefone" required />
+                <input {...register("telefone", { required: true })} type="tel" id="telefone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu telefone" required />
               </div>
               <div className="mb-4">
-                <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu e-mail para contato" required />
+                <input {...register("email", { required: true })} type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu e-mail para contato" required />
               </div>
               <div className="mb-4">
-                <input type="text" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5" placeholder="Qual é o seu projeto?" required />
+                <input {...register("project", { required: true })} type="text" id="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5" placeholder="Qual é o seu projeto?" required />
               </div>
               <button type="submit" className="flex items-center text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                 <span>Solicitar orçamento</span>
