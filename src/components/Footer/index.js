@@ -5,17 +5,24 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 export const Footer = () => {
-  
+  const [success, setSuccess] = React.useState(false)
   const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful  } } = useForm();
 
 
-  const formId = "687acbff-6e45-41e9-bc12-d9962f4a8ecd"
-  
-
+  const formId = "1cc8d420-11f1-497f-bb83-23077bfe9c52"
+  const portalId = '43976843'
+{/* <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "43976843",
+    formId: "1cc8d420-11f1-497f-bb83-23077bfe9c52"
+  }); */}
+// </script>
 const onSubmit = async (data) => {
   try {
     const response = await axios.post(
-      `https://api.hsforms.com/submissions/v3/integration/submit/43963245/${formId}`,
+      `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
       {
         fields: [
           {
@@ -35,7 +42,7 @@ const onSubmit = async (data) => {
           },
           {
             "objectTypeId": "0-1",
-            "name": "lastname",
+            "name": "project",
             "value": data.project
           }
         ],
@@ -46,7 +53,7 @@ const onSubmit = async (data) => {
       }
     );
     if (response.status === 200) {
-      setSuccess(true)
+      setSuccess(response.data.inlineMessage)
     }
   } catch (error) {
     console.error(error);
@@ -56,13 +63,10 @@ const onSubmit = async (data) => {
 useEffect(() => {
   if (isSubmitSuccessful) {
     reset({
-    firstname: '',
-    company: '',
+    nome: '',
+    telefone: '',
     email: '',
-    frota_total: '',
-    jobtitle: '',
-    melhor_horario: '',
-    phone: ''
+    project: '',
   })
 }
 
@@ -104,6 +108,7 @@ useEffect(() => {
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>
               </button>
+              {success && <p className='text-lg font-bold'>{success}</p>}
             </form>
           </div>
         </div>
