@@ -177,7 +177,6 @@ export default function Home() {
   }, [isSubmitSuccessful, reset])
   return (
     <>
-      <Navbar />
       <main className="min-h-screen m-auto max-w-7xl	">
         <HeroSection />
 
