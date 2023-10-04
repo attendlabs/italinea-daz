@@ -1,4 +1,5 @@
 'use client'
+import React, { useEffect } from 'react';
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import { useForm } from "react-hook-form";
@@ -116,20 +117,68 @@ const Banner = () => {
 }
 
 export default function Home() {
+  const [success, setSuccess] = React.useState(false)
+  const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful } } = useForm();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm()
+  const formId = "1cc8d420-11f1-497f-bb83-23077bfe9c52"
+  const portalId = '43976843'
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+        {
+          fields: [
+            {
+              "objectTypeId": "0-1",
+              "name": "firstname",
+              "value": data.nome
+            },
+            {
+              "objectTypeId": "0-1",
+              "name": "phone",
+              "value": data.telefone
+            },
+            {
+              "objectTypeId": "0-1",
+              "name": "email",
+              "value": data.email
+            },
+            {
+              "objectTypeId": "0-1",
+              "name": "project",
+              "value": data.project
+            }
+          ],
+          "context": {
+            "pageUri": "https://www.italineadaz.com.br/form",
+            "pageName": "Página DAZ"
+          },
+        }
+      );
+      if (response.status === 200) {
+        setSuccess(response.data.inlineMessage)
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset({
+        nome: '',
+        telefone: '',
+        email: '',
+        project: '',
+      })
+    }
+
+  }, [isSubmitSuccessful, reset])
   return (
     <>
+      <Navbar />
       <main className="min-h-screen m-auto max-w-7xl	">
-        <Navbar />
         <HeroSection />
 
         {/* Solicite seu orçamento */}
@@ -143,9 +192,9 @@ export default function Home() {
             </h2>
           </div>
           <div className='md:w-1/3'>
-            <form onSubmit={handleSubmit(onSubmit)}> 
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="my-4">
-                <input {...register("nome")}  type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 " placeholder="Seu nome" required />
+                <input {...register("nome")} type="text" id="nome" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md block w-full p-2.5 " placeholder="Seu nome" required />
               </div>
               <div className="mb-4">
                 <input {...register("telefone", { required: true })} type="tel" id="telefone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md  block w-full p-2.5 " placeholder="Seu telefone" required />

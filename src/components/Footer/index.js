@@ -11,14 +11,7 @@ export const Footer = () => {
 
   const formId = "1cc8d420-11f1-497f-bb83-23077bfe9c52"
   const portalId = '43976843'
-{/* <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
-<script>
-  hbspt.forms.create({
-    region: "na1",
-    portalId: "43976843",
-    formId: "1cc8d420-11f1-497f-bb83-23077bfe9c52"
-  }); */}
-// </script>
+
 const onSubmit = async (data) => {
   try {
     const response = await axios.post(
@@ -113,7 +106,7 @@ useEffect(() => {
           </div>
         </div>
         <hr className="my-6 border-white border-1 opacity-25 sm:mx-auto lg:my-8" />
-        <span className="block text-xs text-gray-400 sm:text-center">© 2023 <a href="#" class="hover:underline">Italínea Daz Uberlândia</a>. Todos os direitos reservados.</span>
+        <span className="block text-xs text-gray-400 sm:text-center">© 2023 <a href="#" className="hover:underline">Italínea Daz Uberlândia</a>. Todos os direitos reservados.</span>
       </div>
     </footer>
 
