@@ -78,7 +78,7 @@ useEffect(() => {
               <p>Móveis planejados em Uberlândia</p>
               <p>Avenida Afonso Pena, 3013 Brasil</p>
               <p>Uberlândia - MG</p>
-              <p>Telefone: (34) 3199-9651</p>
+              <p>Telefone: (34) 3277-3791</p>
             </div>
           </div>
           <div className='min-w-[30%]'>

@@ -22,7 +22,7 @@ const GallerySection = () => {
         </div>
         <div className="grid grid-cols-4 gap-1 md:gap-4">
           <div>
-            <Image width={400} height={300} src="/ambiente2.jpeg" alt="" className="h-auto max-w-full rounded-lg" />
+            <Image width={400} height={300} src="/showroom1.jpg" alt="" className="h-auto max-w-full rounded-lg" />
           </div>
           <div>
             <Image width={400} height={300} src="/ambiente3.jpeg" alt="" className="h-auto max-w-full rounded-lg" />
@@ -45,7 +45,7 @@ const InfoSection = () => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-wrap md:items-start -m-8">
           <div className="w-full md:w-1/2 p-4">
-            <Image width={800} height={500} className="mx-auto rounded-lg transform hover:-translate-y-1 transition duration-500" src="/info-mock.jpeg" alt="" />
+            <Image width={800} height={500} className="mx-auto rounded-lg transform hover:-translate-y-1 transition duration-500" src="/showroom2.JPG" alt="" />
           </div>
           <div className="w-full md:w-1/2 p-8">
             <div className="max-w-xl">
