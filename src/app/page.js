@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const HeroSection = () => {
   return (
@@ -157,6 +158,7 @@ export default function Home() {
         }
       );
       if (response.status === 200) {
+        console.log(response.data)
         setSuccess(response.data.inlineMessage)
       }
     } catch (error) {
@@ -211,7 +213,7 @@ export default function Home() {
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                 </svg>
               </button>
-              {success && <p className='text-lg font-bold'>{success}</p>}
+              {success && <p className='text-lg font-bold text-white'>{success}</p>}
             </form>
           </div>
         </section>
