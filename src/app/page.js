@@ -153,7 +153,7 @@ export default function Home() {
           ],
           "context": {
             "pageUri": "https://www.italineadaz.com.br/form",
-            "pageName": "Página DAZ"
+            "pageName": "Página {Main} DAZ"
           },
         }
       );
