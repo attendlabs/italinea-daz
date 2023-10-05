@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Italínea DAZ',
-  description: 'Móveis planejados em Uberlândia',
+  description: 'Móveis Planejados em Uberlândia',
 }
 
 export default function RootLayout({ children }) {
